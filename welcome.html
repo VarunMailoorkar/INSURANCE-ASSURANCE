@@ -1,0 +1,65 @@
+<!-- accounts/templates/welcome.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Assurance</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Your custom CSS styles */
+        body {
+            background-image: url("{% static 'images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .logo img {
+            max-width: 200px; /* Adjust the size of the logo */
+            margin-bottom: 20px; /* Add some space below the logo */
+        }
+        .greeting {
+            font-size: 24px; /* Increase font size for the greeting */
+            margin-bottom: 30px; /* Add some space below the greeting */
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-container .button-column {
+            flex: 1;
+            margin: 0 10px; /* Add margin to create space between buttons */
+        }
+        .button-container .button-column .login-button {
+            width: 100%;
+            font-size: 18px; /* Increase font size for buttons */
+            padding: 20px; /* Increase padding for buttons */
+            margin-bottom: 40px; /* Add margin between buttons and adjust as needed */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="Car Insurance Logo">
+        </div>
+        <h2 class="greeting">Welcome to Insurance Assurance</h2>
+        <div class="button-container">
+            <div class="button-column">
+                <a href="{% url 'login' %}" class="btn btn-primary login-button">Login</a>
+            </div>
+            <div class="button-column">
+                <a href="{% url 'register' %}" class="btn btn-success login-button">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

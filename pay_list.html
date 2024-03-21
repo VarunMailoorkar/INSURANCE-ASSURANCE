@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payments List</title>
+    <style>
+        .navbar {
+            background-color: #004d99; /* Dark blue background for contrast */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            height: 40px; /* Slightly larger logo for better visibility */
+            margin-right: 15px;
+        }
+        .navbar-brand h1 {
+            font-size: 24px; /* Larger font size for brand name */
+            margin: 0;
+            color: #f4f4f4; /* Light grey color for a modern look */
+        }
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #04AA6D;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-brand">
+            <img src="{#}" alt="Logo">
+            <a href="{% url 'dashboard' %}"><h1>Insurance Assurance</h1></a>
+        </div>
+        <div class="username" id="username">Hello, <span id="usernamePlaceholder">username</span></div>
+    </div>
+    <h1>Payments List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Payment ID</th>
+                <th>Mode of Payment</th>
+                <th>Amount</th>
+                <th>Transaction Date</th>
+                <th>Policy Bought</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over payment records -->
+            {% for payment in payments %}
+            <tr>
+                <td>{{ payment.pay_id }}</td>
+                <td>{{ payment.mode }}</td>
+                <td>{{ payment.amount }}</td>
+                <td>{{ payment.transaction_date }}</td>
+                <td>{{ payment.p_no }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+{% csrf_token %}

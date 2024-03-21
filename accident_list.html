@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #ff6666;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Accident Records</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Vehicle Id</th>
+                <th>Place</th>
+                <th>Accident Date</th>
+                <th>Tier</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for accident in accidents %}
+            <tr>
+                <td>{{ accident.veh_id.vehicle_id }}</td>
+                <td>{{ accident.place }}</td>
+                <td>{{ accident.acc_date }}</td>
+                <td>{{ accident.damage_tier }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

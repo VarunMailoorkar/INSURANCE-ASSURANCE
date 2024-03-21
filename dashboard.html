@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #004d99; /* Dark blue background for contrast */
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      height: 40px; /* Slightly larger logo for better visibility */
+      margin-right: 15px;
+    }
+    .navbar-brand h1 {
+      font-size: 24px; /* Larger font size for brand name */
+      margin: 0;
+      color: #f4f4f4; /* Light grey color for a modern look */
+    }
+
+    /* Right corner for username */
+    .username {
+      margin-right: 20px;
+      font-weight: bold;
+    }
+
+    /* Container Styles */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around; /* Changed to space-around for even spacing */
+      width: 90%;
+      max-width: 1200px; /* Max width for larger screens */
+      margin: 40px auto; /* Increased margin for better spacing */
+      padding: 0 20px;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px; /* Rounded corners for a softer look */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 25px; /* Increased padding for a spacious feel */
+      flex-basis: calc(25% - 40px); /* Adjusted for four cards per row */
+      margin: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px); /* Slight lift effect on hover */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card h2 {
+      color: #333;
+      margin-top: 0;
+      font-size: 20px; /* Larger headings for emphasis */
+    }
+    .card ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .card ul li {
+      margin-bottom: 15px; /* Increased spacing for readability */
+    }
+    .card ul li a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: 500; /* Medium font weight for better legibility */
+      transition: color 0.3s ease;
+    }
+    .card ul li a:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-brand">
+      <img src="{#}" alt="Logo">
+      <a href="{% url 'dashboard' %}"><h1>Insurance Assurance</h1></a>
+    </div>
+    <div class="username" id="username">Hello, <span id="usernamePlaceholder">username</span></div>
+  </div>
+
+  <!-- Content -->
+  <div class="container">
+    <!-- Card for Policies -->
+    <div class="card">
+      <h2>Policies</h2>
+      <ul>
+        <li><a href="{% url 'policy_list' %}">List Policies</a></li>
+        <li><a href="{% url 'addpolicy' %}">Create Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Card for Vehicles -->
+    <div class="card">
+      <h2>Vehicles</h2>
+      <ul>
+        <li><a href="{% url 'vehicle_list' %}">List Vehicles</a></li>
+        <li><a href="{% url 'vehicle_add' %}">Register Vehicle</a></li>
+      </ul>
+    </div>
+
+    <!-- Card for Customers -->
+    <div class="card">
+      <h2>Customers</h2>
+      <ul>
+        <li><a href="{% url 'customer_list' %}">List Customers</a></li>
+        <li><a href="{% url 'customer_add' %}">Add Customer</a></li>
+      </ul>
+    </div>
+
+    <!-- Card for Accidents -->
+    <div class="card">
+      <h2>Accidents</h2>
+      <ul>
+        <li><a href="{% url 'accident_list' %}">List Accidents</a></li>
+        <li><a href="{% url 'accident_new' %}">Report Accident</a></li>
+      </ul>
+    </div>
+
+    <!-- Card for Payments -->
+    <div class="card">
+      <h2>Payments</h2>
+      <ul>
+        <li><a href="{% url 'payment_list' %}">View Payments</a></li>
+        <li><a href="{% url 'pay_record' %}">Record Payment</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Replace 'username' with the actual username
+    document.getElementById('usernamePlaceholder').innerText = 'Varun'; // Replace 'John Doe' with the actual username
+  </script>
+</body>
+</html>
